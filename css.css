@@ -1,0 +1,419 @@
+:root {
+    --rojo-primario: #C1121F;
+    --rojo-fondo: #780000;
+    --negro-pers: #1B1B1B;
+    --blanco-contraste: #FDF0D5;
+    --daurat-accent: #b9a14d;
+}
+
+/* GENERAL */
+body {
+    background-color: var(--blanco-contraste);
+    margin: 0;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+main h2, h3, p {
+    color: var(--negro-pers);
+}
+
+/* HEADER */
+header {
+    background-color: var(--rojo-fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    color: var(--blanco-contraste);
+    position: absolute;
+}
+
+header a {
+    color: var(--blanco-contraste);
+    text-decoration: none;
+}
+
+nav {
+    margin-left: 60%;
+}
+
+nav a {
+    margin: 5px;
+}
+
+/* NOTICIES */
+.Grupnoticies {
+    margin: 100px auto 0 auto;
+    max-width: 45%;
+    min-width: 45%;
+}
+
+.Grupnoticies h2 {
+    text-align: center;
+}
+
+.Noticia {
+    margin: 10px;
+}
+
+.Noticia h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TextFoto {
+    display: flex;
+    justify-content: space-between;
+}
+
+.TextFoto img {
+    border-radius: 3px;
+    margin-left: 40px;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: var(--rojo-primario);
+}
+/* FORMULARI NOU JUGADOR */
+/* CONTENEDOR FORMULARIO */
+.Main_Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin: 50px auto;
+    padding: 35px;
+    width: 380px;
+    background-color: #fdf6e3;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIO */
+.Form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+/* LABELS */
+.Etiqueta_Form {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--negro-pers);
+}
+
+/* INPUTS Y SELECTS */
+.Box_Form,
+.Select_Form {
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: white;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+/* INPUT FILE MEJORADO */
+.File_Form {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* FOCUS CAMPOS */
+.Box_Form:focus,
+.Select_Form:focus,
+.File_Form:focus {
+    outline: none;
+    border-color: var(--daurat-accent);
+    box-shadow: 0 0 5px rgba(185,161,77,0.5);
+}
+
+/* BOTÓN */
+.Submit_Form {
+    margin-top: 10px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #ffb347, #ffcc33);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.Submit_Form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* CLASSIFICACIO */
+/* TAULES CLASSIFICACIO */
+.Main_Classificacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 50px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Main_Classificacio h2 {
+    font-size: 32px;
+    color: var(--negro-pers);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Taula genèrica */
+.Main_Classificacio table {
+    width: 90%;
+    max-width: 900px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Encapçalament */
+.Main_Classificacio th {
+    background: var(--rojo-primario);
+    color: var(--blanco-contraste);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+/* Files */
+.Main_Classificacio td {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: var(--negro-pers);
+    vertical-align: middle;
+}
+
+/* Alternança de colors */
+.Main_Classificacio tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover suau */
+.Main_Classificacio tr:hover {
+    background-color: #ffeaa0;
+    transition: background-color 0.3s ease;
+}
+
+/* Imatges equips i jugadors */
+.Main_Classificacio img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Jugadors golejadors */
+.Jugador_Classificacio {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--daurat-accent);
+}
+
+/* Taula golejadors */
+.Main_Classificacio table:nth-of-type(2) th, 
+.Main_Classificacio table:nth-of-type(2) td {
+    text-align: center;
+}
+/*
+| Propiedad                   | Función                                                 |
+| --------------------------- | ------------------------------------------------------- |
+| `border-collapse: collapse` | Fusiona bordes de celdas para tabla más limpia          |
+| `overflow: hidden`          | Oculta contenido que sobresale del contenedor           |
+| `vertical-align: middle`    | Centra contenido verticalmente en celdas o inline       |
+| `object-fit: cover`         | Ajusta imagen para llenar contenedor sin deformar       |
+| `nth-of-type(2)`            | Aplica estilos solo a la segunda tabla de su contenedor |
+*/
+
+/* PLANTILLES EQUIPS */
+/* CONTENEDOR DE TARGETES */
+.targetes-jugadors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* TARGETA JUGADOR */
+.targeta-jugador {
+    position: relative;
+    width: 220px;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecte hover */
+.targeta-jugador:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* IMATGE DE FONS */
+.imatge-fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* IMATGE JUGADOR */
+.imatge-a-dalt {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--daurat-accent);
+    background-color: #fff;
+}
+
+/* NOM DEL JUGADOR - centrat horitzontal */
+.Nom {
+    position: absolute;
+    top: 150px;          /* distància des de dalt de la targeta */
+    left: 50%;           /* centragem horitzontal */
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;          /* espai per ajustar text llarg */
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--negro-pers);
+    margin: 0;
+}
+
+/* INFORMACIÓ DEL JUGADOR - centrat horitzontal */
+.info {
+    position: absolute;
+    bottom: 40px;        /* distància des de baix de la targeta */
+    left: 50%;           /* centragem horitzontal */
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;          /* espai per ajustar text llarg */
+    font-size: 16px;
+    color: var(--negro-pers);
+    line-height: 1.4;
+}
+
+.select2-container {
+    width: 250px !important; /* ancho del select */
+    height: 70px;
+}
+
+.select2-container .select2-selection--single {
+    height: 70px;           /* altura total del área visible */
+    line-height: 50px;      /* centra verticalmente el texto */
+    border-radius: 8px;     /* opcional: bordes redondeados */
+}
+
+/* RESULTATS DELS PARTITS */
+/* MAIN RESULTATS */
+.Main_Resultats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.Main_Resultats h2{
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* CONTENIDOR DE PARTITS */
+.Resultats_Partits{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* TARGETA PARTIT */
+.Partit{
+    display: flex;
+    flex-direction: column;
+    align-items:space-around;
+    background: linear-gradient(145deg, #ffffff, #fdf0d5);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* HOVER PARTIT */
+.Partit:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* EQUIPS */
+.Equips_Partit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* EQUIP */
+.Equip{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--negro-pers);
+}
+
+/* ESCUTS */
+.Equips_Partit img{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* RESULTAT */
+.Resultat{
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--rojo-primario);
+    background-color: var(--blanco-contraste);
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 2px solid var(--daurat-accent);
+}
