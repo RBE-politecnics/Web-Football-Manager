@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plantilles dels equips</title>
   <link rel="shortcut icon" href="../src/img/Favicom.ico" />
-  <!--Carrega Select2 per posar img dins del select -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../css.css">
-
 </head>
 
 <body>
@@ -24,6 +22,7 @@
       <a href="./Resultats.html" class="links">Resultats dels partits</a>
     </nav>
   </header>
+
   <main>
     <select id="Desplegable_Equips">
       <option value="Real Betis" data-img="../src/img/escudos/betis.png">Real Betis</option>
@@ -47,20 +46,15 @@
       <option value="Rayo Vallecano" data-img="../src/img/escudos/rayo.png">Rayo Vallecano</option>
       <option value="Deportivo Alavés" data-img="../src/img/escudos/alaves.png">Deportivo Alavés</option>
     </select>
-    <div class="targetes-jugadors">
-      <!-- Aquí es mostraran les targetes dels jugadors de l'equip seleccionat -->
-    </div>
+
+    <div class="targetes-jugadors"></div>
   </main>
 
-  <!-- jQuery (Dependencies de Select2)-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Select2 -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <!-- Script propio -->
-  <script src="../src/Scripts/Plantilles_Equips.js"></script>
-  <!--console.log("Script carregat correctament");
-        alert("JS s'ha carregat!"); -->
+
+  <script src="../src/Scripts/plantilles.js"></script>
+  <script src="../src/Scripts/accesibilidad_Flechas.js"></script>
 </body>
-<script src="../src/Scripts/accesibilidad_Flechas.js"></script>
 
 </html>

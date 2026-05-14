@@ -1,76 +1,69 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("JS carregat correctament");
 
-    // --- Select2 con imágenes ---
-    function formatOption(option) {
-        if (!option.id) return option.text;
-        var img = $(option.element).data('img');
-        if (!img) return option.text;
-        return $('<span><img src="' + img + '" width="50" style="margin-right:8px;"> ' + option.text + '</span>');
-    }
+    const contenidor = document.querySelector(".targetes-jugadors");
+    const select = document.getElementById("Desplegable_Equips");
 
-    $('#Desplegable_Equips').select2({
-        templateResult: formatOption,
-        templateSelection: formatOption
-    });
+    fetch("../src/JSON/jugadorsMasculins.json")
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error("Fitxer JSON no trobat: " + resp.status);
+            }
+            return resp.json();
+        })
+        .then(data => {
 
-    // --- Función para cargar plantillas ---
-    function carregarPlantilla() {
-        const contenidor = document.querySelector(".targetes-jugadors");
-        const select = document.getElementById("Desplegable_Equips");
+            function renderEquip(equip) {
+                contenidor.innerHTML = "";
 
-        fetch("../src/JSON/jugadorsMasculins.json")
-            .then(resp => {
-                if (!resp.ok) throw new Error("Fitxer JSON no trobat: " + resp.status);
-                return resp.json();
-            })
-            .then(data => {
-                function renderEquip(equip) {
-                    contenidor.innerHTML = "";
-                    if (!equip) return;
-                    const obj = data.find(e => e.equip === equip);
-                    if (!obj) return;
+                if (!equip) return;
 
-                    obj.jugadors.forEach(jugador => {
-                        const targeta = document.createElement("div");
-                        targeta.classList.add("targeta-jugador");
+                const obj = data.find(e => e.equip === equip);
 
-                        const imgFondo = document.createElement("img");
-                        imgFondo.classList.add("imatge-fondo");
-                        imgFondo.src = "../src/img/pngtree-empty-gold-player-card-rating-vector-png-image_12575430.png";
-                        targeta.appendChild(imgFondo);
+                if (!obj) return;
 
-                        const imgJugador = document.createElement("img");
-                        imgJugador.classList.add("imatge-a-dalt");
-                        imgJugador.src = jugador.foto || "../src/img/Persona Default.png";
-                        targeta.appendChild(imgJugador);
+                obj.jugadors.forEach(jugador => {
 
-                        const nom = document.createElement("h3");
-                        nom.classList.add("Nom");
-                        nom.textContent = jugador.nomPersona;
-                        targeta.appendChild(nom);
+                    const targeta = document.createElement("div");
+                    targeta.classList.add("targeta-jugador");
 
-                        const info = document.createElement("p");
-                        info.classList.add("info");
-                        info.innerHTML = `Dorsal: ${jugador.dorsal}<br>Posició: ${jugador.posicio}<br>Qualitat: ${jugador.qualitat}`;
-                        targeta.appendChild(info);
+                    const imgFondo = document.createElement("img");
+                    imgFondo.classList.add("imatge-fondo");
+                    imgFondo.src = "../src/img/pngtree-empty-gold-player-card-rating-vector-png-image_12575430.png";
+                    targeta.appendChild(imgFondo);
 
-                        contenidor.appendChild(targeta);
-                    });
-                }
+                    const imgJugador = document.createElement("img");
+                    imgJugador.classList.add("imatge-a-dalt");
+                    imgJugador.src = jugador.foto || "../src/img/Persona Default.png";
+                    targeta.appendChild(imgJugador);
 
-                // Use jQuery change handler so it works with Select2
-                $(select).on('change', function() {
-                    renderEquip(this.value);
+                    const nom = document.createElement("h3");
+                    nom.classList.add("Nom");
+                    nom.textContent = jugador.nomPersona;
+                    targeta.appendChild(nom);
+
+                    const info = document.createElement("p");
+                    info.classList.add("info");
+                    info.innerHTML = `
+                        Dorsal: ${jugador.dorsal}<br>
+                        Posició: ${jugador.posicio}<br>
+                        Qualitat: ${jugador.qualitat}
+                    `;
+                    targeta.appendChild(info);
+
+                    contenidor.appendChild(targeta);
                 });
+            }
 
-                // If an option is already selected when the page loads, render it
-                if (select.value) {
-                    renderEquip(select.value);
-                }
-            })
-            .catch(err => console.error("Error carregant JSON:", err));
-    }
+            select.addEventListener("change", () => {
+                renderEquip(select.value);
+            });
 
-    carregarPlantilla();
+            if (select.value) {
+                renderEquip(select.value);
+            }
+        })
+        .catch(err => {
+            console.error("Error carregant JSON:", err);
+        });
 });
